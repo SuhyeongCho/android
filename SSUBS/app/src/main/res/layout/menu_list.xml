@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/menu_list_name"
+        android:layout_width="224dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="떡갈비 볶음 치즈 비빔 덮밥"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/menu_list_price"
+        android:layout_width="206dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="9000원"
+        android:gravity="center"/>
+</LinearLayout>

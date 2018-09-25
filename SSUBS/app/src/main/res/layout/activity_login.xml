@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".hostActivity.LoginActivity">
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="2"
+        android:rowCount="3"
+        android:orientation="horizontal">
+        <TextView
+            android:text="아이디"/>
+        <EditText
+            android:id="@+id/login_ID"/>
+
+        <TextView
+            android:text="비밀번호"/>
+        <EditText
+            android:id="@+id/login_PW"
+            android:password="true"/>
+
+        <Button
+            android:id="@+id/signin"
+            android:text="로그인"
+            android:layout_columnSpan="1"/>
+        <Button
+            android:id="@+id/signup"
+            android:text="회원가입"/>
+    </GridLayout>
+
+</android.support.constraint.ConstraintLayout>

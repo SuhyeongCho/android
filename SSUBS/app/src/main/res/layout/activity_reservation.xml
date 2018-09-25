@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".userActivity.ReservationActivity">
+
+    <TextView
+        android:id="@+id/RN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름"/>
+
+    <EditText
+        app:layout_constraintTop_toBottomOf="@+id/RN"
+        android:id="@+id/reservation_name"
+        android:layout_width="40dp"
+        android:layout_height="40dp"/>
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/reservation_name"
+        android:id="@+id/RT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시간"/>
+
+    <EditText
+        app:layout_constraintTop_toBottomOf="@+id/RT"
+        android:id="@+id/reservation_time"
+        android:layout_width="40dp"
+        android:layout_height="40dp"/>
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@+id/reservation_time"
+        android:id="@+id/RP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="연락처"/>
+
+    <EditText
+        app:layout_constraintTop_toBottomOf="@+id/RP"
+        android:id="@+id/reservation_phone"
+        android:layout_width="40dp"
+        android:layout_height="40dp"/>
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@+id/reservation_phone"
+        android:id="@+id/RA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="인원수"/>
+
+    <EditText
+        app:layout_constraintTop_toBottomOf="@+id/RA"
+        android:id="@+id/reservation_people"
+        android:layout_width="40dp"
+        android:layout_height="40dp"/>
+
+    <Button
+        app:layout_constraintTop_toBottomOf="@+id/reservation_people"
+        android:id="@+id/reservation_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="예약 하기"/>
+
+</android.support.constraint.ConstraintLayout>
