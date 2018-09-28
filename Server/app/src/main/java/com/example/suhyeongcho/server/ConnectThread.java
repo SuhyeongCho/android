@@ -17,7 +17,7 @@ public class ConnectThread extends Thread {
 
     private BufferedReader networkReader;
     private BufferedWriter networkWriter;
-    private String ip = "192.168.35.142";
+    private String ip = "10.27.12.4";
     private int port = 3000;
     private Socket socket;
     File file;
@@ -37,7 +37,7 @@ public class ConnectThread extends Thread {
 //            out.println("aa");
             DataInputStream dis = new DataInputStream(fis);
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
-            byte[] buf = new byte[1280*720];
+            byte[] buf = new byte[640*480];
             while(dis.read(buf)>0){
                 dos.write(buf);
                 dos.flush();

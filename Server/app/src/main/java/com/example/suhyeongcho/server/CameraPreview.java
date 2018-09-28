@@ -49,7 +49,20 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 
             // 카메라 설정
             android.hardware.Camera.Parameters parameters = mCamera .getParameters();
-            parameters.setPictureSize(1280,720);
+
+            parameters.setPreviewSize(640,480);
+
+            /*
+            DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
+            int screenWidth = metrics.widthPixels;
+            int screenHeight = metrics.heightPixels;
+            parameters.setPreviewSize(screenWidth,screenWidth);
+            */
+
+            parameters.setPictureSize(640,480);
+
+            parameters.setFocusMode(parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
+
             // 카메라의 회전이 가로/세로일때 화면을 설정한다.
             if (getResources().getConfiguration().orientation != Configuration.ORIENTATION_LANDSCAPE) {
                 parameters.set("orientation", "portrait");
@@ -69,12 +82,12 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
             mCamera.startPreview();
 
             // 자동포커스 설정
-            mCamera.autoFocus(new android.hardware.Camera.AutoFocusCallback() {
-                @Override
-                public void onAutoFocus(boolean success, android.hardware.Camera camera) {
-                    if(success){}
-                }
-            });
+//            mCamera.autoFocus(new android.hardware.Camera.AutoFocusCallback() {
+//                @Override
+//                public void onAutoFocus(boolean success, android.hardware.Camera camera) {
+//                    if(success){}
+//                }
+//            });
         } catch (IOException e) {
             e.printStackTrace();
         }
