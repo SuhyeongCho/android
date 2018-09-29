@@ -50,16 +50,8 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
             // 카메라 설정
             android.hardware.Camera.Parameters parameters = mCamera .getParameters();
 
-            parameters.setPreviewSize(640,480);
 
-            /*
-            DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
-            int screenWidth = metrics.widthPixels;
-            int screenHeight = metrics.heightPixels;
-            parameters.setPreviewSize(screenWidth,screenWidth);
-            */
-
-            parameters.setPictureSize(640,480);
+            //parameters.setPictureSize(4032,3024);
 
             parameters.setFocusMode(parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
 
@@ -81,13 +73,6 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
             // 카메라 미리보기를 시작한다.
             mCamera.startPreview();
 
-            // 자동포커스 설정
-//            mCamera.autoFocus(new android.hardware.Camera.AutoFocusCallback() {
-//                @Override
-//                public void onAutoFocus(boolean success, android.hardware.Camera camera) {
-//                    if(success){}
-//                }
-//            });
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -179,14 +164,14 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         final int height = resolveSize(getSuggestedMinimumHeight(), heightMeasureSpec);
         setMeasuredDimension(width, height);
 
+        //setMeasuredDimension(width,width);
         if (listPreviewSizes != null) {
             previewSize = getPreviewSize(listPreviewSizes, width, height);
+            //previewSize = getPreviewSize(listPreviewSizes,width,width);
         }
     }
     public android.hardware.Camera.Size getPreviewSize(List<android.hardware.Camera.Size> sizes, int w, int h) {
 
-        //w = 720;
-        //h = 1080;
         final double ASPECT_TOLERANCE = 0.1;
         double targetRatio = (double) h / w;
 
