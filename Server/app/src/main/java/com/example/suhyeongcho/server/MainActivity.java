@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        th.interrupt();
         super.onPause();
     }
 
@@ -136,15 +135,24 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCamera.takePicture(shutterCallback,rawCallback,jpegCallback);
+                //mCamera.takePicture(shutterCallback,rawCallback,jpegCallback);
 
-                th = new ConnectThread(socket);
-                th.start();
-
-
-                //액티비티 전환이 과연 될까?
-                //쓰레드 문제 생각해보자!
+//                th = new ConnectThread(socket);
+//                th.start();
+//                try {
+//                    조인하면 쓰레드 다 할 때까지 멈춘다
+//                    th.join();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
                 Intent intent = new Intent(MainActivity.this,ResultActivity.class);
+                //put Extra로 Serializable을 implements한 객체를 보냄
+                //intent.putExtra("OBJECT",data);
+                //받을 때는
+                //Intent intent = getIntent();
+                //Data data = (Data) intent.getSerializableExtra("OBJECT");
+                //형식으로 받음
+                //intent.putExtra()
                 startActivity(intent);
 
             }
