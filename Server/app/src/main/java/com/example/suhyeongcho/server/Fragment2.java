@@ -21,7 +21,7 @@ public class Fragment2 extends Fragment {
         String message = bundle.getString("A");
 
         textView = view.findViewById(R.id.result);
-        textView.setText(message);
+        textView.setText(message+"%");
 
         return view;
     }

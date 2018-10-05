@@ -13,7 +13,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import java.io.InputStream;
@@ -25,10 +28,15 @@ public class ResultActivity extends AppCompatActivity {
     Fragment4 fr4;
 
     int page = 0;
-    Button left,right;
+    ImageButton left,right,but;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_result);
 
 
@@ -64,12 +72,14 @@ public class ResultActivity extends AppCompatActivity {
         bundle4.putString("C", result.getCResult());
         fr4.setArguments(bundle4);
 
-        Button left = findViewById(R.id.left);
-        Button right = findViewById(R.id.right);
+        left = findViewById(R.id.left);
+        right = findViewById(R.id.right);
 
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.fragment,fr1).commit();
+        left.setVisibility(View.INVISIBLE);right.setVisibility(View.VISIBLE);
+
 
         left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,9 +88,9 @@ public class ResultActivity extends AppCompatActivity {
                 transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right);
                 switch (page){
                     case 0 : break;
-                    case 1 : transaction.replace(R.id.fragment, fr1); page--; break;
-                    case 2 : transaction.replace(R.id.fragment, fr2); page--; break;
-                    case 3 : transaction.replace(R.id.fragment, fr3); page--; break;
+                    case 1 : left.setVisibility(View.INVISIBLE);right.setVisibility(View.VISIBLE);transaction.replace(R.id.fragment, fr1); page--; break;
+                    case 2 : left.setVisibility(View.VISIBLE);right.setVisibility(View.VISIBLE);transaction.replace(R.id.fragment, fr2); page--; break;
+                    case 3 : left.setVisibility(View.VISIBLE);right.setVisibility(View.VISIBLE);transaction.replace(R.id.fragment, fr3); page--; break;
                 }
                 transaction.addToBackStack(null);
                 transaction.commit();
@@ -93,9 +103,9 @@ public class ResultActivity extends AppCompatActivity {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left);
                 switch (page){
-                    case 0 : transaction.replace(R.id.fragment, fr2); page++; break;
-                    case 1 : transaction.replace(R.id.fragment, fr3); page++; break;
-                    case 2 : transaction.replace(R.id.fragment, fr4); page++; break;
+                    case 0 : left.setVisibility(View.VISIBLE);right.setVisibility(View.VISIBLE);transaction.replace(R.id.fragment, fr2); page++; break;
+                    case 1 : left.setVisibility(View.VISIBLE);right.setVisibility(View.VISIBLE);transaction.replace(R.id.fragment, fr3); page++; break;
+                    case 2 : left.setVisibility(View.VISIBLE);right.setVisibility(View.INVISIBLE);transaction.replace(R.id.fragment, fr4); page++; break;
                     case 3 : break;
 
 
@@ -107,7 +117,7 @@ public class ResultActivity extends AppCompatActivity {
 
 
 
-        Button but = findViewById(R.id.but);
+        but = findViewById(R.id.but);
         but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,15 +125,6 @@ public class ResultActivity extends AppCompatActivity {
             }
         });
 
-
-//        반투명 처리하는법
-//        Paint paint = new Paint();
-//
-//        paint.setColor(Color.BLACK);
-//
-//        paint.setAlpha(70);
-//
-//        ((RelativeLayout)findViewById(R.id.layout)).setBackgroundColor(paint.getColor());
     }
 
 

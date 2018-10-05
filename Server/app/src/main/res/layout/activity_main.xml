@@ -17,12 +17,13 @@
         android:layout_marginTop="0dp"
         android:visibility="visible" />
 
-    <Button
+    <ImageButton
         android:id="@+id/camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
+        android:background="@drawable/ic_camera_alt_black_24dp"
         android:text="camera"/>
 </RelativeLayout>

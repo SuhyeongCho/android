@@ -59,8 +59,7 @@ public class ConnectThread extends Thread {
 
             socket.close();
 
-
-        }catch(Exception e){
+            }catch(Exception e){
             Log.d("Haqqq",e.getMessage());
         }
     }

@@ -23,7 +23,7 @@ public class Fragment1 extends Fragment {
         String message = bundle.getString("TOTAL");
 
         textView = view.findViewById(R.id.result);
-        textView.setText(message);
+        textView.setText(message+"%");
 
 
         return view;

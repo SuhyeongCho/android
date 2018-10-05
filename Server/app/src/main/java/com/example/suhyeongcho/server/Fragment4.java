@@ -24,7 +24,7 @@ public class Fragment4 extends Fragment {
 
 
 
-      textView.setText(message);
+      textView.setText(message+"%");
 
 
         return view;

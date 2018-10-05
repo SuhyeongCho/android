@@ -21,7 +21,7 @@ public class Fragment3 extends Fragment {
 
 
         textView = view.findViewById(R.id.result);
-        textView.setText(message);
+        textView.setText(message+"%");
 
         return view;
     }
