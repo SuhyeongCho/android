@@ -1,51 +1,67 @@
 package com.example.suhyeongcho.server;
 
 import android.os.Environment;
+import android.util.Log;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.net.Socket;
+import java.nio.Buffer;
 
 public class ConnectThread extends Thread {
 
-    private String ip = "10.27.12.4";
+    private String ip = "10.27.13.52";
     private int port = 3000;
-    final int IMAGE_SIZE = 4032*3024;
+    final int IMAGE_SIZE = 1280*720;
 
     private Socket socket;
-    File file;
+    private File file;
+    private Result result;
+    String res;
 
-    ConnectThread(Socket socket){
+    ConnectThread(Socket socket,Result result){
         this.socket = socket;
+        this.result = result;
     }
 
     @Override
     public void run() {
-        try{
-            file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/storage/project.jpg");
-            socket = new Socket(ip,port);
+        try {
+
+            socket = new Socket(ip, port);
+            file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/storage/project.jpg");
             FileInputStream fis = new FileInputStream(file);
 
             DataInputStream dis = new DataInputStream(fis);
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
             byte[] buf = new byte[IMAGE_SIZE];
-            while(dis.read(buf)>0){
+            while (dis.read(buf) > 0) {
                 dos.write(buf);
                 dos.flush();
             }
-            dos.close();
 
-//            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-//            String a = in.readLine();
-//            Log.d("a",a);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+
+            res = bufferedReader.readLine();
+
+            result.setResult(res);
+
+            bufferedReader.close();
+
             socket.close();
 
 
-
         }catch(Exception e){
-            e.printStackTrace();
+            Log.d("Haqqq",e.getMessage());
         }
     }
 }

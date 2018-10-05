@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private android.hardware.Camera.PictureCallback rawCallback,jpegCallback;
     Socket socket;
     ConnectThread th;
+    Result result;
 
     String mRootPath;
 
@@ -135,24 +136,20 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //mCamera.takePicture(shutterCallback,rawCallback,jpegCallback);
-
-//                th = new ConnectThread(socket);
-//                th.start();
-//                try {
-//                    조인하면 쓰레드 다 할 때까지 멈춘다
-//                    th.join();
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
+                mCamera.takePicture(shutterCallback,rawCallback,jpegCallback);
+                result = new Result();
+                th = new ConnectThread(socket,result);
+                th.start();
+                try {
+                    //조인하면 쓰레드 다 할 때까지 멈춘다
+                    th.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 Intent intent = new Intent(MainActivity.this,ResultActivity.class);
+                Log.d("Haqqq1",result.getTotalResult());
                 //put Extra로 Serializable을 implements한 객체를 보냄
-                //intent.putExtra("OBJECT",data);
-                //받을 때는
-                //Intent intent = getIntent();
-                //Data data = (Data) intent.getSerializableExtra("OBJECT");
-                //형식으로 받음
-                //intent.putExtra()
+                intent.putExtra("RESULT",result);
                 startActivity(intent);
 
             }
