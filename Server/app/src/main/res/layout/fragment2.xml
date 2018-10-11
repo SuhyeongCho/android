@@ -2,7 +2,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#17000000">
 
     <TextView
         android:id="@+id/result"
@@ -20,8 +21,10 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="150dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:textSize="20dp"
-        android:text=" Asymmetry(비대칭성)
+        android:text=" A : Asymmetry(비대칭성)
   양성 모반은 대부분 좌우 대칭적인 형태를 보입니다. 종양의 좌우나 상하의 반으로 나누어 보았을 때 모양이 비대칭성을 보일 때에는 악성흑색종의 가능성을 의심해야 합니다." />
 
 </RelativeLayout>

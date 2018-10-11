@@ -2,7 +2,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#17000000">
 
 
     <TextView
@@ -21,8 +22,10 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="150dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:textSize="20dp"
-        android:text=" Color variegation(색조의 다양함)
+        android:text=" C : Color variegation(색조의 다양함)
   양성 종양은 표면의 빛깔이 한 가지 색으로 균일한 색조를 보입니다. 만일 검은색, 갈색, 적색, 회색, 청색 등 두 가지 이상의 다양한 색조 및 음영을 보인다면 악성흑색종의 가능성을 의심해야 합니다."/>
 
 </RelativeLayout>
