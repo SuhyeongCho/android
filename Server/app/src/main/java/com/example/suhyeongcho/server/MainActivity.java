@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             public void onPictureTaken(byte[] data, android.hardware.Camera camera) {
                 try{
 
-                    mRootPath = Environment.getExternalStorageDirectory().getAbsolutePath()+"/storage";
+                    mRootPath = Environment.getExternalStorageDirectory().getAbsolutePath()+"/cancerstorage";
                     Log.d("position",mRootPath);
 
                     File folder = new File(mRootPath);
@@ -105,6 +105,24 @@ public class MainActivity extends AppCompatActivity {
                 }catch (IOException e){
                     e.printStackTrace();
                 }
+                result = new Result();
+                th = new ConnectThread(socket,result);
+                th.start();
+                CheckTypesTask task = new CheckTypesTask();
+                task.execute();
+
+
+                try {
+                    //조인하면 쓰레드 다 할 때까지 멈춘다
+                    th.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                //task.cancel(true);
+                Intent intent = new Intent(MainActivity.this,ResultActivity.class);
+                //put Extra로 Serializable을 implements한 객체를 보냄
+                intent.putExtra("RESULT",result);
+                startActivity(intent);
 
             }
         };
@@ -146,24 +164,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mCamera.takePicture(shutterCallback,rawCallback,jpegCallback);
-                result = new Result();
-                th = new ConnectThread(socket,result);
-                th.start();
-                CheckTypesTask task = new CheckTypesTask();
-                task.execute();
 
-
-                try {
-                    //조인하면 쓰레드 다 할 때까지 멈춘다
-                    th.join();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                task.cancel(true);
-                Intent intent = new Intent(MainActivity.this,ResultActivity.class);
-                //put Extra로 Serializable을 implements한 객체를 보냄
-                intent.putExtra("RESULT",result);
-                startActivity(intent);
 
             }
         });
@@ -231,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
                 while(time <= 5000){
                     Thread.sleep(1000);
                     time += 1000;
-                    if (isCancelled()) return null;
+                    //if (isCancelled()) return null;
 
                 }
             } catch (InterruptedException e) {

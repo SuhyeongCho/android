@@ -18,7 +18,7 @@ import java.nio.Buffer;
 
 public class ConnectThread extends Thread {
 
-    private String ip = "10.27.12.157";
+    private String ip = "10.27.12.80";
     private int port = 3000;
     final int IMAGE_SIZE = 1280*720;
 
@@ -37,7 +37,7 @@ public class ConnectThread extends Thread {
         try {
 
             socket = new Socket(ip, port);
-            file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/storage/project.jpg");
+            file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/cancerstorage/project.jpg");
             FileInputStream fis = new FileInputStream(file);
 
             DataInputStream dis = new DataInputStream(fis);

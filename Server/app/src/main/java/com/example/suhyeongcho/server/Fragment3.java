@@ -21,7 +21,12 @@ public class Fragment3 extends Fragment {
 
 
         textView = view.findViewById(R.id.result);
-        textView.setText(message+"%");
+        if(message.equals("0")){
+            textView.setText("경계가 모호하지 않습니다.");
+        }
+        else if(message.equals("100")){
+            textView.setText("경계가 모호합니다.");
+        }
 
         return view;
     }
