@@ -26,6 +26,7 @@ public class ResultActivity extends AppCompatActivity {
     Fragment2 fr2;
     Fragment3 fr3;
     Fragment4 fr4;
+    Fragment5 fr5;
 
     int page = 0;
     ImageButton left,right,but;
@@ -48,38 +49,42 @@ public class ResultActivity extends AppCompatActivity {
         Log.d("Haqqq2",result.getTotalResult());
 
 
-        //액티비티에서 값을 넣어서 전달하고
-        fr1 = new Fragment1();
-        Bundle bundle1 = new Bundle();
-        bundle1.putString("TOTAL", result.getTotalResult());
-        fr1.setArguments(bundle1);
+        if(result!=null) {
+            //액티비티에서 값을 넣어서 전달하고
+            fr1 = new Fragment1();
+            Bundle bundle1 = new Bundle();
+            bundle1.putString("TOTAL", result.getTotalResult());
+            fr1.setArguments(bundle1);
 
-        //액티비티에서 값을 넣어서 전달하고
-        fr2 = new Fragment2();
-        Bundle bundle2 = new Bundle();
-        bundle2.putString("A", result.getAResult());
-        fr2.setArguments(bundle2);
+            //액티비티에서 값을 넣어서 전달하고
+            fr2 = new Fragment2();
+            Bundle bundle2 = new Bundle();
+            bundle2.putString("A", result.getAResult());
+            fr2.setArguments(bundle2);
 
-        //액티비티에서 값을 넣어서 전달하고
-        fr3 = new Fragment3();
-        Bundle bundle3 = new Bundle();
-        bundle3.putString("B", result.getBResult());
-        fr3.setArguments(bundle3);
+            //액티비티에서 값을 넣어서 전달하고
+            fr3 = new Fragment3();
+            Bundle bundle3 = new Bundle();
+            bundle3.putString("B", result.getBResult());
+            fr3.setArguments(bundle3);
 
-        //액티비티에서 값을 넣어서 전달하고
-        fr4 = new Fragment4();
-        Bundle bundle4 = new Bundle();
-        bundle4.putString("C", result.getCResult());
-        fr4.setArguments(bundle4);
+            //액티비티에서 값을 넣어서 전달하고
+            fr4 = new Fragment4();
+            Bundle bundle4 = new Bundle();
+            bundle4.putString("C", result.getCResult());
+            fr4.setArguments(bundle4);
 
-        left = findViewById(R.id.left);
-        right = findViewById(R.id.right);
+            fr5 = new Fragment5();
+
+            left = findViewById(R.id.left);
+            right = findViewById(R.id.right);
 
 
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.fragment,fr1).commit();
-        left.setVisibility(View.INVISIBLE);right.setVisibility(View.VISIBLE);
-
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(R.id.fragment, fr1).commit();
+            left.setVisibility(View.INVISIBLE);
+            right.setVisibility(View.VISIBLE);
+        }
 
         left.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +96,8 @@ public class ResultActivity extends AppCompatActivity {
                     case 1 : left.setVisibility(View.INVISIBLE);right.setVisibility(View.VISIBLE);transaction.replace(R.id.fragment, fr1); page--; break;
                     case 2 : left.setVisibility(View.VISIBLE);right.setVisibility(View.VISIBLE);transaction.replace(R.id.fragment, fr2); page--; break;
                     case 3 : left.setVisibility(View.VISIBLE);right.setVisibility(View.VISIBLE);transaction.replace(R.id.fragment, fr3); page--; break;
+                    case 4 : left.setVisibility(View.VISIBLE);right.setVisibility(View.VISIBLE);transaction.replace(R.id.fragment, fr4); page--; break;
+
                 }
                 transaction.addToBackStack(null);
                 transaction.commit();
@@ -105,8 +112,9 @@ public class ResultActivity extends AppCompatActivity {
                 switch (page){
                     case 0 : left.setVisibility(View.VISIBLE);right.setVisibility(View.VISIBLE);transaction.replace(R.id.fragment, fr2); page++; break;
                     case 1 : left.setVisibility(View.VISIBLE);right.setVisibility(View.VISIBLE);transaction.replace(R.id.fragment, fr3); page++; break;
-                    case 2 : left.setVisibility(View.VISIBLE);right.setVisibility(View.INVISIBLE);transaction.replace(R.id.fragment, fr4); page++; break;
-                    case 3 : break;
+                    case 2 : left.setVisibility(View.VISIBLE);right.setVisibility(View.VISIBLE);transaction.replace(R.id.fragment, fr4); page++; break;
+                    case 3 : left.setVisibility(View.VISIBLE);right.setVisibility(View.INVISIBLE);transaction.replace(R.id.fragment, fr5); page++; break;
+                    case 4 : break;
 
 
                 }

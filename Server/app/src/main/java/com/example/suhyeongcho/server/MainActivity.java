@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.hardware.Camera;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
@@ -46,12 +47,27 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        mCamera.release();
+        super.onDestroy();
+        if(mCamera != null) mCamera.release();
         try {
             if (th.isAlive()) th.interrupt();
             if (socket.isConnected()) socket.close();
         }catch (Exception e){}
-        super.onDestroy();
+    }
+
+    protected void onPause(){
+        super.onPause();
+        if(mCamera != null) mCamera.release();
+        try {
+            if (th.isAlive()) th.interrupt();
+            if (socket.isConnected()) socket.close();
+        }catch (Exception e){}
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        requestPermissionCamera();
     }
 
     @Override
@@ -83,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPictureTaken(byte[] data, android.hardware.Camera camera) {
                 try{
-
                     mRootPath = Environment.getExternalStorageDirectory().getAbsolutePath()+"/cancerstorage";
                     Log.d("position",mRootPath);
 
@@ -163,9 +178,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCamera.takePicture(shutterCallback,rawCallback,jpegCallback);
-
-
+                mCamera.takePicture(shutterCallback, rawCallback, jpegCallback);
             }
         });
     }

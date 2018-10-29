@@ -5,15 +5,23 @@
     android:layout_height="match_parent"
     android:background="#17000000">
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:text="B"
+        android:textSize="50dp"/>
+
     <TextView
         android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="99dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginTop="230dp"
         android:text="000%"
         android:textSize="50dp"/>
 
@@ -25,7 +33,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:gravity="center"
         android:textSize="20dp"
-        android:text=" B : Border irregularity(불규칙한 경계)
-  양성 종양은 종양의 가장자리 모양이 굴곡이 없는 부드러운 곡선의 형태를 보입니다. 그러므로 가장자리가 울퉁불퉁하고 들쭉날쭉 할 경우에는 악성흑색종의 가능성을 의심해야 합니다."/>
+        android:text="Border irregularity(불규칙한 경계) : 양성 종양은 종양의 가장자리 모양이 굴곡이 없는 부드러운 곡선의 형태를 보입니다. 그러므로 가장자리가 울퉁불퉁하고 들쭉날쭉 할 경우에는 악성흑색종의 가능성을 의심해야 합니다."/>
+
+
 </RelativeLayout>

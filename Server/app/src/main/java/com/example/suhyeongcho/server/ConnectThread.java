@@ -18,7 +18,7 @@ import java.nio.Buffer;
 
 public class ConnectThread extends Thread {
 
-    private String ip = "10.27.12.80";
+    private String ip = "10.27.13.36";
     private int port = 3000;
     final int IMAGE_SIZE = 1280*720;
 

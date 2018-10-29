@@ -5,13 +5,24 @@
     android:layout_height="match_parent"
     android:background="#17000000">
 
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:text="A"
+        android:textSize="50dp"/>
+
     <TextView
         android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="99dp"
+        android:layout_marginTop="230dp"
         android:text="000%"
         android:textSize="50dp"/>
 
@@ -23,8 +34,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:gravity="center"
         android:textSize="20dp"
-        android:text=" A : Asymmetry(비대칭성)
-  양성 모반은 대부분 좌우 대칭적인 형태를 보입니다. 종양의 좌우나 상하의 반으로 나누어 보았을 때 모양이 비대칭성을 보일 때에는 악성흑색종의 가능성을 의심해야 합니다." />
+        android:text="Asymmetry(비대칭성) : 양성 모반은 대부분 좌우 대칭적인 형태를 보입니다. 종양의 좌우나 상하의 반으로 나누어 보았을 때 모양이 비대칭성을 보일 때에는 악성흑색종의 가능성을 의심해야 합니다."/>
+
+
+
 
 </RelativeLayout>

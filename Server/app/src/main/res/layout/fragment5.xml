@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#17000000">
+    
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="99dp"
+        android:layout_marginRight="20dp"
+        android:text=" D : Diameter(직경이 0.6cm 이상)
+양성의 일반적인 검은 점은 대부분 크기가 0.6cm를 넘지 않습니다. 비교적 최근에 새로 생긴 검은 점이 0.6cm보다 클 경우에는 악성흑색종의 가능성을 의심해야 합니다."
+        android:textSize="20dp" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="140dp"
+        android:text=" E : Evolution(색조나 크기의 변화)
+기존의 반점의 색조가 변하거나 크기가 커지거나 두께가 두꺼워지는 등의 변화가 나타나면 악성흑색종의 가능성을 의심해야 합니다."
+        android:textSize="20dp" />
+
+</RelativeLayout>
