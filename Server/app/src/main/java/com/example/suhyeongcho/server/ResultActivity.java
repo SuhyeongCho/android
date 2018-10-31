@@ -75,6 +75,9 @@ public class ResultActivity extends AppCompatActivity {
             fr4.setArguments(bundle4);
 
             fr5 = new Fragment5();
+            Bundle bundle5 = new Bundle();
+            bundle5.putString("D", result.getDResult());
+            fr5.setArguments(bundle5);
 
             left = findViewById(R.id.left);
             right = findViewById(R.id.right);
@@ -129,6 +132,10 @@ public class ResultActivity extends AppCompatActivity {
         but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent exit_intent = new Intent(ResultActivity.this,MainActivity.class);
+                exit_intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                exit_intent.putExtra("KILL_APP",true);
+                startActivity(exit_intent);
                 finish();
             }
         });

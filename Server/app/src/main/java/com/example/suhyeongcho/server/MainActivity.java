@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 //task.cancel(true);
-                Intent intent = new Intent(MainActivity.this,ResultActivity.class);
+                Intent intent = new Intent(MainActivity.this,SizeActivity.class);
                 //put Extra로 Serializable을 implements한 객체를 보냄
                 intent.putExtra("RESULT",result);
                 startActivity(intent);
@@ -242,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
         protected Void doInBackground(Void... arg0) {
             int time = 0;
             try {
-                while(time <= 5000){
+                while(time <= 3000){
                     Thread.sleep(1000);
                     time += 1000;
                     //if (isCancelled()) return null;
