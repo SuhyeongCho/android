@@ -1,7 +1,5 @@
 package com.example.suhyeongcho.server;
 
-import android.content.Intent;
-
 import java.io.Serializable;
 
 public class Result implements Serializable {

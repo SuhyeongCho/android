@@ -4,7 +4,6 @@ import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.hardware.Camera;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
@@ -17,7 +16,6 @@ import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import java.io.File;
@@ -133,7 +131,6 @@ public class MainActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                //task.cancel(true);
                 Intent intent = new Intent(MainActivity.this,SizeActivity.class);
                 //put Extra로 Serializable을 implements한 객체를 보냄
                 intent.putExtra("RESULT",result);
@@ -245,7 +242,6 @@ public class MainActivity extends AppCompatActivity {
                 while(time <= 3000){
                     Thread.sleep(1000);
                     time += 1000;
-                    //if (isCancelled()) return null;
 
                 }
             } catch (InterruptedException e) {
