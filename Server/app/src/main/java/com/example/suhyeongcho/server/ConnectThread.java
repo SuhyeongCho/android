@@ -14,7 +14,7 @@ import java.net.Socket;
 
 public class ConnectThread extends Thread {
 
-    private String ip = "10.27.12.50";
+    private String ip = "10.27.13.85";
     private int port = 3000;
     final int IMAGE_SIZE = 1280*720;
 
